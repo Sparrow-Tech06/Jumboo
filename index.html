@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brain Puzzle</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+  background:#f5f7fb;
+  font-family:system-ui;
+}
+
+/* header */
+header{
+  background:white;
+  border-bottom:1px solid #eee;
+}
+
+/* mode cards */
+.mode-card{
+  border-radius:20px;
+  transition:.25s;
+  box-shadow:0 3px 10px rgba(0,0,0,0.05);
+}
+
+.mode-card:active{
+  transform:scale(.96);
+}
+
+.mode-icon{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+.science{background:#e8f5e9;color:#4CAF50;}
+.math{background:#e3f2fd;color:#1976d2;}
+.logic{background:#fff3e0;color:#fb8c00;}
+
+</style>
+</head>
+
+<body>
+
+<header class="p-3 text-center">
+  <h5 class="m-0 fw-semibold">Brain Puzzle</h5>
+</header>
+
+<main class="container py-4">
+
+<a href="levels.html?mode=science"
+class="card mode-card p-3 mb-3 text-decoration-none text-dark">
+
+<div class="d-flex align-items-center gap-3">
+  <div class="mode-icon science">🧪</div>
+  <div>
+    <h6 class="m-0">Science</h6>
+    <small class="text-muted">Experiments & facts</small>
+  </div>
+</div>
+
+</a>
+
+
+<a href="levels.html?mode=math"
+class="card mode-card p-3 mb-3 text-decoration-none text-dark">
+
+<div class="d-flex align-items-center gap-3">
+  <div class="mode-icon math">➗</div>
+  <div>
+    <h6 class="m-0">Math</h6>
+    <small class="text-muted">Numbers & logic</small>
+  </div>
+</div>
+
+</a>
+
+
+<a href="levels.html?mode=logic"
+class="card mode-card p-3 mb-3 text-decoration-none text-dark">
+
+<div class="d-flex align-items-center gap-3">
+  <div class="mode-icon logic">🧠</div>
+  <div>
+    <h6 class="m-0">Logic</h6>
+    <small class="text-muted">Brain puzzles</small>
+  </div>
+</div>
+
+</a>
+
+</main>
+
+</body>
+</html>
