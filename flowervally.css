@@ -32,11 +32,11 @@ body{
 .sublevel{
   height:8px;
   border-radius:20px;
-  background:#ddd;
+  background:#dfe5ef ;
   flex-grow:1;
 }
 .sublevel.active{
-  background:linear-gradient(90deg,#4F46E5,#06B6D4);
+  background: var(--primary);
 }
 
 /* Question */
