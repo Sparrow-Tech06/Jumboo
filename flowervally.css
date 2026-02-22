@@ -56,12 +56,29 @@ body{
 }
 
 /* Overlay */
-#overlay{
+.overlay-popup{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.4);
-  display:none;
-  align-items:center;
+  display:flex;
   justify-content:center;
-  z-index:999;
+  align-items:center;
+  animation:fade .3s;
+}
+
+.popup-box{
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  width:85%;
+  animation:scale .3s;
+}
+
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes scale{
+  from{transform:scale(.8)}
+  to{transform:scale(1)}
 }
