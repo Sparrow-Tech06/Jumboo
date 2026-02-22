@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body{
+  background:#f4f6fb;
+}
+
+/* Smooth */
+*{
+  transition: all .25s ease;
+}
+
+/* Sublevel */
+.sublevel{
+  height:8px;
+  border-radius:20px;
+  background:#ddd;
+  flex-grow:1;
+}
+.sublevel.active{
+  background:#4caf50;
+}
+
+/* Question */
+.question-card{
+  min-height:150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+}
+
+/* Inputs */
+.input-box{
+  width:48px;
+  height:60px;
+  font-size:22px;
+  text-align:center;
+}
+
+/* Buttons */
+.nav-btn{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:white;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+/* Retention */
+.nav-btn:active{
+  transform:scale(.9);
+}
+.input-box:focus{
+  border:2px solid #4caf50;
+}
+
+/* Overlay */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+</style>
+</head>
+
+<body>
+
+<header class="p-2 bg-white shadow-sm d-flex align-items-center">
+  <button onclick="history.back()" class="btn btn-light">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+  <h6 class="mx-auto mb-0">Level <span id="lvl"></span></h6>
+</header>
+
+<main class="container py-3">
+
+<!-- LEVEL -->
+<section>
+  <div class="d-flex justify-content-between">
+    <span>Level <span id="lvl2"></span></span>
+    <span>Level <span id="next"></span></span>
+  </div>
+  <div id="subProgress" class="d-flex gap-2 mt-2"></div>
+</section>
+
+<!-- QUESTION -->
+<section class="card question-card my-3">
+  <span id="questionText"></span>
+</section>
+
+<!-- SLIDER -->
+<section class="d-flex justify-content-between mb-3">
+  <button class="btn nav-btn" onclick="prevQ()">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  <button class="btn nav-btn" onclick="nextQ()">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+</section>
+
+<!-- INPUT -->
+<section id="inputs" class="d-flex justify-content-center gap-2 mb-3"></section>
+
+<button class="btn btn-success w-100 py-3" onclick="submitAnswer()">Submit</button>
+
+</main>
+
+<!-- Overlay popup -->
+<div id="overlay"></div>
+
+<script>
+const url=new URLSearchParams(location.search);
+let level=parseInt(url.get("level"));
+let sub=parseInt(url.get("sub"));
+
+let gameData, subData, answer="";
+let qIndex=0;
+
+fetch("data.json")
+.then(r=>r.json())
+.then(data=>{
+  gameData=data;
+  let lvl=data.levels.find(l=>l.level===level);
+  subData=lvl.sublevels.find(s=>s.sub===sub);
+
+  document.getElementById("lvl").innerText=level;
+  document.getElementById("lvl2").innerText=level;
+  document.getElementById("next").innerText=level+1;
+
+  answer=subData.answer.toUpperCase();
+
+  buildSub(lvl);
+  loadQuestion();
+  buildInputs();
+});
+
+/* Sublevel */
+function buildSub(lvl){
+  let html="";
+  lvl.sublevels.forEach(s=>{
+    html+=`<div class="sublevel ${s.sub<=sub?'active':''}"></div>`;
+  });
+  subProgress.innerHTML=html;
+}
+
+/* Question */
+function loadQuestion(){
+  questionText.innerText=subData.questions[qIndex];
+}
+function nextQ(){
+  if(qIndex<subData.questions.length-1){
+    qIndex++;
+    loadQuestion();
+  }
+}
+function prevQ(){
+  if(qIndex>0){
+    qIndex--;
+    loadQuestion();
+  }
+}
+
+/* Inputs */
+function buildInputs(){
+  let html="";
+  for(let i=0;i<answer.length;i++){
+    html+=`<input maxlength="1" class="form-control input-box">`;
+  }
+  inputs.innerHTML=html;
+}
+
+/* Submit */
+function submitAnswer(){
+  let user="";
+  document.querySelectorAll(".input-box")
+  .forEach(i=>user+=i.value.toUpperCase());
+
+  if(user===answer){
+    window.gameCallback("rightanswer");
+  }else{
+    window.gameCallback("wronganswer");
+  }
+}
+
+/* Next */
+function goNext(){
+  let lvl=gameData.levels.find(l=>l.level===level);
+  if(sub<lvl.sublevels.length){
+    location.href=`game.html?level=${level}&sub=${sub+1}`;
+  }else{
+    location.href="index.html";
+  }
+}
+</script>
+
+<!-- Callback system -->
+<script src="callback.js"></script>
+
+</body>
+</html>
