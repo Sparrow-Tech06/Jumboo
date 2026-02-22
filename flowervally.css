@@ -40,6 +40,7 @@ body{
   background: var(--card) ;
   color: var(--text) ;
   box-shadow:0 6px 25px rgba(0,0,0,.06);
+  border-radius: 10px ;
 }
 
 /* Inputs */
@@ -57,7 +58,6 @@ body{
 .input-box:focus{
   outline:none !important;
   border:2px solid #4caf50;
-  box-shadow:0 0 0 4px rgba(79,70,229,.15);
 }
 
 /* Buttons */
@@ -72,6 +72,8 @@ body{
 /* Retention */
 .nav-btn:active{
   transform:scale(.9);
+  border:none ;
+  outline: none ;
 }
 
 /* Overlay */
@@ -89,6 +91,7 @@ body{
   background: var(--popup) ;
   padding:25px;
   border-radius:16px;
+  text-align: center ;
   width:85%;
   animation:scale .3s;
 }
@@ -101,3 +104,5 @@ body{
   from{transform:scale(.8)}
   to{transform:scale(1)}
 }
+
+
