@@ -6,11 +6,13 @@
 }
 @media (prefers-color-scheme: dark) {
    :root {
-       --body-bg: ;
+       --body-bg: #0f172a ;
+       --input-border: #334155;
    }
 }
 body{
   background: var(--body-bg) ;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Smooth */
@@ -50,13 +52,15 @@ body{
 
 /* Inputs */
 .input-box{
-  width:50px;
-  height:60px;
-  font-size:22px;
+  width:55px;
+  height:65px;
+  font-size:20px;
   text-align:center;
   border-radius:12px;
   background:white;
   outline:none !important;
+  border:2px solid var(--input-border);
+  border-radius:12px;
 }
 
 /* Remove default */
