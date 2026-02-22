@@ -24,7 +24,7 @@
       ]
     },
     {
-      "level": 3,
+      "level": 2,
       "sublevels": [
         {
           "sub": 1,
@@ -37,6 +37,20 @@
         }
       ]
     }, 
+    {
+      "level": 3,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I shine at night",
+            "You see me in sky",
+            "Round shape"
+          ],
+          "answer": "MOON"
+        }
+      ]
+    },
     {
       "level": 4,
       "sublevels": [
@@ -64,7 +78,7 @@
           "answer": "MOON"
         }
       ]
-    },
+    }, 
     {
       "level": 6,
       "sublevels": [
@@ -81,20 +95,6 @@
     }, 
     {
       "level": 7,
-      "sublevels": [
-        {
-          "sub": 1,
-          "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
-          ],
-          "answer": "MOON"
-        }
-      ]
-    }, 
-    {
-      "level": 8,
       "sublevels": [
         {
           "sub": 1,
