@@ -4,6 +4,11 @@
     --text: #ffffff ;
     --popup: #ffffff ;
 }
+@media (prefers-color-scheme: dark) {
+   :root {
+       --body-bg: ;
+   }
+}
 body{
   background: var(--body-bg) ;
 }
