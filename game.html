@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<script src="popup.js"></script>
+
+<title>Game</title>
+
+<style>
+body{
+  background:#f4f6fb;
+}
+
+/* Smooth animation */
+*{
+  transition: all .3s ease;
+}
+
+/* Question */
+.question-card{
+  height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:600;
+}
+
+/* Input */
+.input-box{
+  width:50px;
+  height:60px;
+  font-size:22px;
+  text-align:center;
+}
+
+/* Nav buttons */
+.nav-btn{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:#e9eef7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+.nav-btn:active{
+  transform:scale(.9);
+}
+
+/* Progress */
+.progress-bar{
+  background:#4caf50;
+}
+
+/* Overlay */
+.overlay-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation:fade .3s;
+}
+
+.popup-box{
+  background:#fff;
+  padding:25px;
+  border-radius:16px;
+  width:85%;
+  animation:scale .3s;
+}
+
+@keyframes fade{
+  from{opacity:0}
+  to{opacity:1}
+}
+@keyframes scale{
+  from{transform:scale(.8)}
+  to{transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<header class="bg-white p-2 shadow-sm text-center">
+  <h6 class="mb-0">Level <span id="levelTxt"></span></h6>
+</header>
+
+<main class="container py-3">
+
+<!-- Progress -->
+<div class="d-flex justify-content-between">
+  <span id="lvl1"></span>
+  <span id="lvl2"></span>
+</div>
+
+<div class="progress mb-3">
+  <div id="progress" class="progress-bar"></div>
+</div>
+
+<!-- Question -->
+<section class="card question-card mb-3">
+  <span id="question"></span>
+</section>
+
+<!-- Nav -->
+<section class="d-flex justify-content-between mb-4">
+  <div class="nav-btn" onclick="prevQ()">
+    <i class="bi bi-chevron-left"></i>
+  </div>
+
+  <div class="nav-btn" onclick="nextQ()">
+    <i class="bi bi-chevron-right"></i>
+  </div>
+</section>
+
+<!-- Inputs -->
+<section id="inputs" class="d-flex justify-content-center gap-2 mb-3"></section>
+
+<button class="btn btn-success w-100" onclick="submitAnswer()">Submit</button>
+
+</main>
+
+<script>
+const url=new URLSearchParams(location.search);
+let level=parseInt(url.get("level"));
+let sub=parseInt(url.get("sub"));
+
+let gameData,subData,answer="";
+let qIndex=0;
+
+fetch("data.json")
+.then(res=>res.json())
+.then(data=>{
+  gameData=data;
+  let lvl=data.levels.find(l=>l.level===level);
+  subData=lvl.sublevels.find(s=>s.sub===sub);
+
+  answer=subData.answer.toUpperCase();
+
+  document.getElementById("levelTxt").innerText=level;
+  document.getElementById("lvl1").innerText=`Level ${level}`;
+  document.getElementById("lvl2").innerText=`Level ${level+1}`;
+
+  updateProgress(lvl);
+  loadQ();
+  buildInputs();
+});
+
+function updateProgress(lvl){
+  let percent=(sub/lvl.sublevels.length)*100;
+  document.getElementById("progress").style.width=percent+"%";
+}
+
+function loadQ(){
+  document.getElementById("question").innerText=subData.questions[qIndex];
+}
+
+function nextQ(){
+  if(qIndex<subData.questions.length-1){
+    qIndex++;
+    loadQ();
+  }
+}
+
+function prevQ(){
+  if(qIndex>0){
+    qIndex--;
+    loadQ();
+  }
+}
+
+function buildInputs(){
+  let html="";
+  for(let i=0;i<answer.length;i++){
+    html+=`<input maxlength="1" class="form-control input-box">`;
+  }
+  document.getElementById("inputs").innerHTML=html;
+}
+
+function submitAnswer(){
+  let user="";
+  document.querySelectorAll(".input-box").forEach(i=>{
+    user+=i.value.toUpperCase();
+  });
+
+  if(user===answer){
+    saveProgress();
+    gameCallback("rightanswer");
+  }else{
+    gameCallback("wronganswer");
+  }
+}
+
+function saveProgress(){
+  let p=JSON.parse(localStorage.getItem("progress"))||{};
+  if(!p["level"+level])p["level"+level]={};
+  p["level"+level]["sub"+sub]=true;
+  localStorage.setItem("progress",JSON.stringify(p));
+}
+
+function nextStep(){
+  let lvl=gameData.levels.find(l=>l.level===level);
+
+  if(sub<lvl.sublevels.length){
+    location.href=`game.html?level=${level}&sub=${sub+1}`;
+  }else{
+    location.href="index.html";
+  }
+}
+</script>
+
+</body>
+</html>
