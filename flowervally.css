@@ -1,5 +1,7 @@
 :root {
-    body-bg: #ffffff ;
+    --body-bg: #ffffff ;
+    --card: #F875AA ;
+    --text: #ffffff ;
 }
 body{
   background: var(--body-bg) ;
@@ -27,19 +29,21 @@ body{
 
 /* Question */
 .question-card{
-  min-height:150px;
+  min-height:130px;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
   font-size:18px;
   font-weight:600;
+  background: var(--card) ;
+  color: var(--text) ;
 }
 
 /* Inputs */
 .input-box{
   width:48px;
-  height:60px;
+  height:50px;
   font-size:22px;
   text-align:center;
 }
