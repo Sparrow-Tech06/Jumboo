@@ -41,7 +41,7 @@ body{
   text-align:center;
   font-size:18px;
   font-weight:600;
-  background: var(--card) ;
+  background:linear-gradient(135deg,#4F46E5,#06B6D4);
   color: var(--text) ;
 }
 
