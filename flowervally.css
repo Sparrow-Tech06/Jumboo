@@ -56,7 +56,7 @@ body{
 /* Remove default */
 .input-box:focus{
   outline:none !important;
-  border:2px solid #4F46E5;
+  border:2px solid #4caf50;
   box-shadow:0 0 0 4px rgba(79,70,229,.15);
 }
 
@@ -72,9 +72,6 @@ body{
 /* Retention */
 .nav-btn:active{
   transform:scale(.9);
-}
-.input-box:focus{
-  border:2px solid #4caf50;
 }
 
 /* Overlay */
