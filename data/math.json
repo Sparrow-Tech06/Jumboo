@@ -1,1 +1,138 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I am a red fruit",
+            "Doctors fear me",
+            "My name starts with A"
+          ],
+          "answer": "APPLE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "King of fruits",
+            "Yellow color",
+            "Summer fruit"
+          ],
+          "answer": "MANGO"
+        }
+      ]
+    },
 
+    {
+      "level": 2,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I shine at night",
+            "You see me in sky",
+            "Round shape"
+          ],
+          "answer": "MOON"
+        }
+      ]
+    },
+
+    {
+      "level": 3,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I am used to write",
+            "Students need me",
+            "Ink inside"
+          ],
+          "answer": "PEN"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I show time",
+            "Wear on wrist",
+            "Tick tick sound"
+          ],
+          "answer": "WATCH"
+        }
+      ]
+    },
+
+    {
+      "level": 4,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I have keys",
+            "No lock",
+            "You type on me"
+          ],
+          "answer": "KEYBOARD"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I store water",
+            "Used in kitchen",
+            "Made of steel or plastic"
+          ],
+          "answer": "BOTTLE"
+        }
+      ]
+    },
+
+    {
+      "level": 5,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I fly in sky",
+            "Carry passengers",
+            "Very fast"
+          ],
+          "answer": "AIRPLANE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "You sit on me",
+            "Found in home",
+            "Four legs"
+          ],
+          "answer": "CHAIR"
+        }
+      ]
+    },
+
+    {
+      "level": 8,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I ring when someone calls",
+            "You talk using me",
+            "Smart device"
+          ],
+          "answer": "PHONE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I cool air",
+            "Used in summer",
+            "Electric machine"
+          ],
+          "answer": "FAN"
+        }
+      ]
+    }
+  ]
+}
