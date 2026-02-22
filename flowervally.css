@@ -24,7 +24,7 @@ body{
   flex-grow:1;
 }
 .sublevel.active{
-  background:#4caf50;
+  background:linear-gradient(90deg,#4F46E5,#06B6D4);
 }
 
 /* Question */
