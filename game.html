@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="flowervally.css">
+</head>
+
+<body>
+
+<header class="p-2 bg-white d-flex align-items-center shadow-sm">
+  <button onclick="history.back()" class="btn btn-light">
+    <i class="bi bi-arrow-left"></i>
+  </button>
+  <h6 class="mx-auto mb-0">
+    Level <span id="lvl"></span>
+  </h6>
+</header>
+
+<main class="container py-3">
+
+<!-- LEVEL -->
+<section>
+  <div class="d-flex justify-content-between">
+    <span>Level <span id="lvl2"></span></span>
+    <span>Next Level <span id="next"></span></span>
+  </div>
+  <div id="subProgress" class="d-flex gap-2 mt-2"></div>
+</section>
+
+<!-- QUESTION -->
+<section class="card question-card my-3">
+  <span id="questionText"></span>
+</section>
+
+<!-- SLIDER -->
+<section class="d-flex justify-content-between mb-3">
+  <button class="btn nav-btn" onclick="prevQ()">
+    <i class="bi bi-chevron-left"></i>
+  </button>
+  <button class="btn nav-btn" onclick="nextQ()">
+    <i class="bi bi-chevron-right"></i>
+  </button>
+</section>
+
+<!-- INPUT -->
+<section id="inputsWrapper" class="mb-3">
+  <div id="inputs" class="d-flex gap-2 justify-content-center"></div>
+</section>
+  
+<button class="btn btn-success mt-3 w-100 py-3" onclick="submitAnswer()">
+Submit
+</button>
+
+</main>
+
+<div id="overlay"></div>
+
+<script>
+
+/* ⭐ URL params */
+const url = new URLSearchParams(location.search);
+let mode = url.get("mode");  // NEW
+let level = parseInt(url.get("level"));
+let sub = parseInt(url.get("sub"));
+
+let gameData, subData, answer="";
+let qIndex = 0;
+
+/* ⭐ Dynamic JSON */
+fetch(`data/${mode}.json`)
+.then(r => r.json())
+.then(data => {
+
+  gameData = data;
+
+  let lvl = data.levels.find(l => l.level === level);
+  subData = lvl.sublevels.find(s => s.sub === sub);
+
+  document.getElementById("lvl").innerText = level;
+  document.getElementById("lvl2").innerText = level;
+  document.getElementById("next").innerText = level + 1;
+
+  answer = subData.answer.toUpperCase();
+
+  buildSub(lvl);
+  loadQuestion();
+  buildInputs();
+});
+
+
+/* Sublevel progress */
+function buildSub(lvl){
+  let html="";
+  lvl.sublevels.forEach(s=>{
+    html += `<div class="sublevel ${s.sub<=sub?'active':''}"></div>`;
+  });
+  subProgress.innerHTML = html;
+}
+
+
+/* Question */
+function loadQuestion(){
+  questionText.innerText = subData.questions[qIndex];
+}
+
+function nextQ(){
+  if(qIndex < subData.questions.length - 1){
+    qIndex++;
+    loadQuestion();
+  }
+}
+
+function prevQ(){
+  if(qIndex > 0){
+    qIndex--;
+    loadQuestion();
+  }
+}
+
+
+/* Inputs */
+function buildInputs(){
+  let html="";
+  for(let i=0; i<answer.length; i++){
+    html += `<input maxlength="1" class="form-control input-box text-center">`;
+  }
+  inputs.innerHTML = html;
+}
+
+
+/* Submit */
+function submitAnswer(){
+
+  let user="";
+  document.querySelectorAll(".input-box")
+  .forEach(i => user += i.value.toUpperCase());
+
+  if(user === answer){
+    window.gameCallback("rightanswer");
+  }else{
+    window.gameCallback("wronganswer");
+  }
+}
+
+
+/* ⭐ Unlock + navigation */
+function goNext(){
+
+  let lvl = gameData.levels.find(l => l.level === level);
+
+  /* next sublevel */
+  if(sub < lvl.sublevels.length){
+
+    location.href = 
+    `game.html?mode=${mode}&level=${level}&sub=${sub+1}`;
+
+  }else{
+
+    /* ⭐ mode-wise progress */
+    let progress = JSON.parse(localStorage.getItem("progress")) || {};
+    progress[mode+"_level"+level] = true;
+    localStorage.setItem("progress", JSON.stringify(progress));
+
+    /* return to levels page */
+    location.href = `levels.html?mode=${mode}`;
+  }
+}
+
+</script>
+
+<script src="popup.js"></script>
+
+</body>
+</html>
