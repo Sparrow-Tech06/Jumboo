@@ -2,7 +2,8 @@
     --body-bg: #ffffff ;
     --primary-light: #dbe3f2;
     --text: #000 ;
-    --popup: #ffffff ;
+    --border-light: #e3e8f0;
+    --text-dark: #2c3a4b;
     --primary: #576A8F;
     --primary-soft: #6f82a8;
     --shadow-soft: 0 6px 18px rgba(0,0,0,0.08);
@@ -59,20 +60,19 @@ body{
 /* Inputs */
 .input-box{
   width:55px;
-  height:65px;
-  font-size:20px;
+  height:55px;
+  border-radius:12px;
+  border:1px solid var(--border-light);
+  background: white;
   text-align:center;
-  border-radius:12px;
-  background:white;
-  outline:none !important;
-  border:2px solid var(--input-border);
-  border-radius:12px;
+  font-size:20px;
+  color: var(--text-dark);
+  outline:none;
+  transition:0.2s;
 }
-
-/* Remove default */
-.input-box:focus{
-  outline:none !important;
-  border:2px solid #4caf50;
+.answer-box:focus{
+  border-color: var(--primary);
+  box-shadow:0 0 0 3px rgba(87,106,143,0.15);
 }
 
 /* Buttons */
