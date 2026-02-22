@@ -32,6 +32,6 @@ function closePopup(next){
   document.querySelector(".overlay-popup").remove();
 
   if(next && typeof nextStep==="function"){
-    nextStep();
+    goNext();
   }
 }
