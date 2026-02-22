@@ -15,7 +15,12 @@ body{
   user-select: none ;
   transition: all .25s ease;
 }
-
+/* Premium card */
+.card{
+  border:none;
+  border-radius:18px;
+  box-shadow:0 6px 25px rgba(0,0,0,.06);
+}
 /* Sublevel */
 .sublevel{
   height:8px;
