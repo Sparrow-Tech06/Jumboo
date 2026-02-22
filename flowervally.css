@@ -4,6 +4,9 @@
     --text: #ffffff ;
     --popup: #ffffff ;
     --primary: #576A8F;
+    --primary-soft: #6f82a8;
+    --shadow-soft: 0 6px 18px rgba(0,0,0,0.08);
+    --radius-lg: 16px;
 }
 @media (prefers-color-scheme: dark) {
    :root {
@@ -85,6 +88,21 @@ body{
   border:none ;
   outline: none ;
 }
+
+.btn-success {
+  background: var(--primary);
+  border:none;
+  padding:14px;
+  border-radius:var(--radius-lg);
+  font-size:18px;
+  font-weight:600;
+  color:white;
+  box-shadow: var(--shadow-soft);
+  transition:0.2s;
+}
+.btn-success:hover{
+     background: var(--primary-soft);
+    }
 
 /* Overlay */
 #overlay{
