@@ -58,6 +58,21 @@ body{
 }
 
 /* Inputs */
+#inputs{
+  overflow-x:auto;
+  flex-wrap:nowrap;
+  padding-bottom:6px;
+  scroll-behavior:smooth;
+}
+
+/* scroll bar hide (mobile look) */
+#inputs::-webkit-scrollbar{
+  display:none;
+}
+#inputs{
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
 .input-box{
   width:55px;
   height:55px;
