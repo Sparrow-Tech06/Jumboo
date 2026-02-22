@@ -60,7 +60,10 @@ Submit
 
 /* URL params */
 const url = new URLSearchParams(location.search);
-let mode = url.get("mode") || "science";
+let mode = url.get("mode");
+if(!mode){
+  location.href = "index.html";
+};
 let level = parseInt(url.get("level"));
 let sub = parseInt(url.get("sub"));
 
