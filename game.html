@@ -158,8 +158,9 @@ function goNext(){
 
     localStorage.setItem("progress", JSON.stringify(progress));
 
-    /* ⭐ Back to level page */
-    window.history.back();
+    setTimeout(()=>{
+      location.replace(`levels.html?mode=${mode}`);
+    }, 120);
   }
 }
 
