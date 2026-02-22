@@ -1,1 +1,100 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I am a red fruit",
+            "Doctors fear me",
+            "My name starts with A"
+          ],
+          "answer": "APPLE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "King of fruits",
+            "Yellow color",
+            "Summer fruit"
+          ],
+          "answer": "MANGO"
+        }
+      ]
+    },
 
+    {
+      "level": 6,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I give light",
+            "Used at night",
+            "Electric device"
+          ],
+          "answer": "BULB"
+        },
+
+        {
+          "sub": 2,
+          "questions": [
+            "You sleep on me",
+            "Soft and comfortable",
+            "Found in bedroom"
+          ],
+          "answer": "BED"
+        }
+      ]
+    },
+
+    {
+      "level": 7,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I protect from rain",
+            "You carry me",
+            "Open and close"
+          ],
+          "answer": "UMBRELLA"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I cook food",
+            "Found in kitchen",
+            "Gas or electric"
+          ],
+          "answer": "STOVE"
+        }
+      ]
+    },
+
+    {
+      "level": 8,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I ring when someone calls",
+            "You talk using me",
+            "Smart device"
+          ],
+          "answer": "PHONE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I cool air",
+            "Used in summer",
+            "Electric machine"
+          ],
+          "answer": "FAN"
+        }
+      ]
+    }
+  ]
+}
