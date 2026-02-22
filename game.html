@@ -159,7 +159,11 @@ function goNext(){
     localStorage.setItem("progress", JSON.stringify(progress));
 
     setTimeout(()=>{
-      location.replace(`levels.html?mode=${mode}`);
+       if(window.history.length > 1){
+          window.history.back();
+     }else{
+         location.replace(`levels.html?mode=${mode}`);
+       }
     }, 120);
   }
 }
