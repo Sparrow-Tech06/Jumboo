@@ -1,6 +1,6 @@
 :root {
     --body-bg: #ffffff ;
-    --card: #dbe3f2 ;
+    --primary-light: #dbe3f2;
     --text: #ffffff ;
     --popup: #ffffff ;
     --primary: #576A8F;
@@ -48,10 +48,12 @@ body{
   text-align:center;
   font-size:18px;
   font-weight:600;
-  background: var(--card) ;
+  background: var(--primary-light);
+  border-radius: var(--radius-lg);
+  padding:50px 20px;
   color: var(--text) ;
-  box-shadow:0 6px 25px rgba(0,0,0,.06);
-  border-radius: 10px ;
+  box-shadow: var(--shadow-soft);
+  border:1px solid rgba(87,106,143,0.15);
 }
 
 /* Inputs */
