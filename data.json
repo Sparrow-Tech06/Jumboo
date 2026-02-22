@@ -23,6 +23,7 @@
         }
       ]
     },
+
     {
       "level": 2,
       "sublevels": [
@@ -36,77 +37,151 @@
           "answer": "MOON"
         }
       ]
-    }, 
+    },
+
     {
       "level": 3,
       "sublevels": [
         {
           "sub": 1,
           "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
+            "I am used to write",
+            "Students need me",
+            "Ink inside"
           ],
-          "answer": "MOON"
+          "answer": "PEN"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I show time",
+            "Wear on wrist",
+            "Tick tick sound"
+          ],
+          "answer": "WATCH"
         }
       ]
     },
+
     {
       "level": 4,
       "sublevels": [
         {
           "sub": 1,
           "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
+            "I have keys",
+            "No lock",
+            "You type on me"
           ],
-          "answer": "MOON"
+          "answer": "KEYBOARD"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I store water",
+            "Used in kitchen",
+            "Made of steel or plastic"
+          ],
+          "answer": "BOTTLE"
         }
       ]
     },
+
     {
       "level": 5,
       "sublevels": [
         {
           "sub": 1,
           "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
+            "I fly in sky",
+            "Carry passengers",
+            "Very fast"
           ],
-          "answer": "MOON"
+          "answer": "AIRPLANE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "You sit on me",
+            "Found in home",
+            "Four legs"
+          ],
+          "answer": "CHAIR"
         }
       ]
-    }, 
+    },
+
     {
       "level": 6,
       "sublevels": [
         {
           "sub": 1,
           "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
+            "I give light",
+            "Used at night",
+            "Electric device"
           ],
-          "answer": "MOON"
+          "answer": "BULB"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "You sleep on me",
+            "Soft and comfortable",
+            "Found in bedroom"
+          ],
+          "answer": "BED"
         }
       ]
-    }, 
+    },
+
     {
       "level": 7,
       "sublevels": [
         {
           "sub": 1,
           "questions": [
-            "I shine at night",
-            "You see me in sky",
-            "Round shape"
+            "I protect from rain",
+            "You carry me",
+            "Open and close"
           ],
-          "answer": "MOON"
+          "answer": "UMBRELLA"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I cook food",
+            "Found in kitchen",
+            "Gas or electric"
+          ],
+          "answer": "STOVE"
         }
       ]
-    } 
-    
+    },
+
+    {
+      "level": 8,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I ring when someone calls",
+            "You talk using me",
+            "Smart device"
+          ],
+          "answer": "PHONE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "I cool air",
+            "Used in summer",
+            "Electric machine"
+          ],
+          "answer": "FAN"
+        }
+      ]
+    }
   ]
 }
+
