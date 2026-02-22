@@ -1,37 +1,34 @@
-// popup.js
+window.gameCallback=function(type){
 
-function gameCallback(type){
+const overlay=document.getElementById("overlay");
 
-  let overlay=document.createElement("div");
-  overlay.className="overlay-popup";
-
-  let box=document.createElement("div");
-  box.className="popup-box";
-
-  if(type==="rightanswer"){
-    box.innerHTML=`
-      <h4 class="text-success fw-bold">Correct 🎉</h4>
-      <p>Great! Keep going.</p>
-      <button class="btn btn-success w-100" onclick="closePopup(true)">Continue</button>
-    `;
-  }
-
-  if(type==="wronganswer"){
-    box.innerHTML=`
-      <h4 class="text-danger fw-bold">Wrong 😢</h4>
-      <p>Try again. You can do it.</p>
-      <button class="btn btn-danger w-100" onclick="closePopup(false)">Retry</button>
-    `;
-  }
-
-  overlay.appendChild(box);
-  document.body.appendChild(overlay);
+if(type==="rightanswer"){
+overlay.innerHTML=`
+<div class="card p-4 text-center">
+<h4 class="text-success">Correct 🎉</h4>
+<p>Great job! Keep going.</p>
+<button class="btn btn-success" onclick="next()">Next</button>
+</div>`;
+overlay.style.display="flex";
 }
 
-function closePopup(next){
-  document.querySelector(".overlay-popup").remove();
+if(type==="wronganswer"){
+overlay.innerHTML=`
+<div class="card p-4 text-center">
+<h4 class="text-danger">Try again</h4>
+<p>You are very close 🔥</p>
+<button class="btn btn-primary" onclick="closePop()">Continue</button>
+</div>`;
+overlay.style.display="flex";
+}
 
-  if(next && typeof nextStep==="function"){
-    goNext();
-  }
+}
+
+function next(){
+closePop();
+goNext();
+}
+
+function closePop(){
+overlay.style.display="none";
 }
