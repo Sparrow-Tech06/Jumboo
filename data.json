@@ -1,0 +1,41 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I am a red fruit",
+            "Doctors fear me",
+            "My name starts with A"
+          ],
+          "answer": "APPLE"
+        },
+        {
+          "sub": 2,
+          "questions": [
+            "King of fruits",
+            "Yellow color",
+            "Summer fruit"
+          ],
+          "answer": "MANGO"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "sublevels": [
+        {
+          "sub": 1,
+          "questions": [
+            "I shine at night",
+            "You see me in sky",
+            "Round shape"
+          ],
+          "answer": "MOON"
+        }
+      ]
+    }
+  ]
+}
