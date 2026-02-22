@@ -86,18 +86,15 @@ body{
 }
 
 /* Overlay */
-.overlay-popup{
+#overlay{
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.4);
-  display:flex;
-  justify-content:center;
+  display:none;
   align-items:center;
+  justify-content:center;
+  z-index:999;
   animation:fade .3s;
-}
-
-.popup-box{
-  background: var(--popup) ;
   padding:25px;
   border-radius:16px;
   text-align: center ;
