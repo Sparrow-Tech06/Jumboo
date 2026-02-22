@@ -58,20 +58,26 @@ body{
 }
 
 /* Inputs */
-#inputs{
+#inputsWrapper{
   overflow-x:auto;
-  flex-wrap:nowrap;
+  display:flex;
+  justify-content:center;
   padding-bottom:6px;
   scroll-behavior:smooth;
 }
 
-/* scroll bar hide (mobile look) */
-#inputs::-webkit-scrollbar{
+/* scrollbar hide */
+#inputsWrapper::-webkit-scrollbar{
   display:none;
 }
-#inputs{
+#inputsWrapper{
   -ms-overflow-style:none;
   scrollbar-width:none;
+}
+
+/* input row */
+#inputs{
+  flex-wrap:nowrap;
 }
 .input-box{
   width:55px;
