@@ -2,6 +2,7 @@
     --body-bg: #ffffff ;
     --card: #F875AA ;
     --text: #ffffff ;
+    --popup: #ffffff ;
 }
 body{
   background: var(--body-bg) ;
@@ -15,12 +16,7 @@ body{
   user-select: none ;
   transition: all .25s ease;
 }
-/* Premium card */
-.card{
-  border:none;
-  border-radius:18px;
-  box-shadow:0 6px 25px rgba(0,0,0,.06);
-}
+
 /* Sublevel */
 .sublevel{
   height:8px;
@@ -41,8 +37,9 @@ body{
   text-align:center;
   font-size:18px;
   font-weight:600;
-  background:linear-gradient(135deg,#4F46E5,#06B6D4);
+  background: var(--card) ;
   color: var(--text) ;
+  box-shadow:0 6px 25px rgba(0,0,0,.06);
 }
 
 /* Inputs */
@@ -52,9 +49,7 @@ body{
   font-size:22px;
   text-align:center;
   border-radius:12px;
-  border:2px solid transparent;
   background:white;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
   outline:none !important;
 }
 
@@ -94,7 +89,7 @@ body{
 }
 
 .popup-box{
-  background:#fff;
+  background: var(--popup) ;
   padding:25px;
   border-radius:16px;
   width:85%;
